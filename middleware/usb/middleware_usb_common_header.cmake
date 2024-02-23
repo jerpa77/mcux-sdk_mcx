@@ -1,13 +1,16 @@
-#Description: USB Common Header; user_visible: True
-include_guard(GLOBAL)
-message("middleware_usb_common_header component is included.")
+# Add set(CONFIG_USE_middleware_usb_common_header true) in config.cmake to use this component
 
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-)
+include_guard(GLOBAL)
+message("${CMAKE_CURRENT_LIST_FILE} component is included.")
+
+if(CONFIG_USE_component_osa)
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/include
+  ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
+else()
 
-include(component_osa)
+message(SEND_ERROR "middleware_usb_common_header dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
+
+endif()

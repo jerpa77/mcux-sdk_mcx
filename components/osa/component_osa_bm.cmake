@@ -1,14 +1,20 @@
-#Description: Component osa_bm; user_visible: False
+# Add set(CONFIG_USE_component_osa_bm true) in config.cmake to use this component
+
 include_guard(GLOBAL)
-message("component_osa_bm component is included.")
+message("${CMAKE_CURRENT_LIST_FILE} component is included.")
+
+if(CONFIG_USE_driver_common AND CONFIG_USE_component_lists AND CONFIG_USE_component_osa_interface)
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}/fsl_os_abstraction_bm.c
+  ${CMAKE_CURRENT_LIST_DIR}/fsl_os_abstraction_bm.c
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/.
+  ${CMAKE_CURRENT_LIST_DIR}/.
 )
 
+else()
 
-include(component_lists)
+message(SEND_ERROR "component_osa_bm dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
+
+endif()

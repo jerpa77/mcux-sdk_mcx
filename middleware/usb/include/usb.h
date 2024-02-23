@@ -11,8 +11,8 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "fsl_common.h"
 #include "fsl_os_abstraction.h"
+#include "fsl_common.h"
 #include "usb_misc.h"
 #include "usb_spec.h"
 
@@ -27,7 +27,7 @@
 /*! @brief Defines USB stack major version */
 #define USB_STACK_VERSION_MAJOR (2UL)
 /*! @brief Defines USB stack minor version */
-#define USB_STACK_VERSION_MINOR (7UL)
+#define USB_STACK_VERSION_MINOR (9UL)
 /*! @brief Defines USB stack bugfix version */
 #define USB_STACK_VERSION_BUGFIX (0U)
 
@@ -90,8 +90,7 @@ typedef enum _usb_controller_index
     kUSB_ControllerKhci1 = 1U, /*!< KHCI 1U, Currently, there are no platforms which have two KHCI IPs, this is reserved
                                   to be used in the future. */
     kUSB_ControllerEhci0 = 2U, /*!< EHCI 0U */
-    kUSB_ControllerEhci1 = 3U, /*!< EHCI 1U, Currently, there are no platforms which have two EHCI IPs, this is reserved
-                                  to be used in the future. */
+    kUSB_ControllerEhci1 = 3U, /*!< EHCI 1U */
 
     kUSB_ControllerLpcIp3511Fs0 = 4U, /*!< LPC USB IP3511 FS controller 0 */
     kUSB_ControllerLpcIp3511Fs1 = 5U, /*!< LPC USB IP3511 FS controller 1, there are no platforms which have two IP3511
